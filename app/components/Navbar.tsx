@@ -1,8 +1,8 @@
 "use client";
 
-import React, { useState } from 'react';
-import Image from 'next/image';
-import Link from 'next/link';
+import React, { useState } from "react";
+import Image from "next/image";
+import Link from "next/link";
 
 const Navbar = () => {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -13,7 +13,7 @@ const Navbar = () => {
         <div className="flex justify-between items-center h-24">
           {/* Logo */}
           <div className="flex-shrink-0">
-            <a href="/" className="flex items-center">
+            <Link href="/" className="flex items-center">
               <Image
                 src="/logo.png"
                 alt="ES Silver Logo"
@@ -22,29 +22,29 @@ const Navbar = () => {
                 priority
                 className="cursor-pointer"
               />
-            </a>
+            </Link>
           </div>
 
           {/* Navigation Links */}
           <div className="hidden md:flex md:items-center md:space-x-6">
-            <a
+            <Link
               href="#landing"
               className="text-gray-800 hover:text-blue-600 transition-all font-medium"
             >
               Despre Noi
-            </a>
-            <a
+            </Link>
+            <Link
               href="#prices"
               className="text-gray-800 hover:text-blue-600 transition-all font-medium"
             >
               Prețuri
-            </a>
-            <a
+            </Link>
+            <Link
               href="#contact"
               className="text-gray-800 hover:text-blue-600 transition-all font-medium"
             >
               Contact
-            </a>
+            </Link>
           </div>
 
           {/* Hamburger Menu Button */}
@@ -64,33 +64,38 @@ const Navbar = () => {
                 strokeLinecap="round"
                 strokeLinejoin="round"
                 strokeWidth="2"
-                d={menuOpen ? 'M6 18L18 6M6 6l12 12' : 'M4 6h16M4 12h16M4 18h16'}
+                d={
+                  menuOpen
+                    ? "M6 18L18 6M6 6l12 12"
+                    : "M4 6h16M4 12h16M4 18h16"
+                }
               />
             </svg>
           </button>
 
           {/* Mobile Menu */}
-{/* Mobile Menu */}
-{menuOpen && (
-  <div className="absolute top-24 left-0 w-full bg-white shadow-md md:hidden">
-    <Link href="#about">
-      <a className="block text-gray-800 hover:text-blue-600 py-2 px-4 transition-all">
-        Despre Noi
-      </a>
-    </Link>
-    <Link href="#prices">
-      <a className="block text-gray-800 hover:text-blue-600 py-2 px-4 transition-all">
-        Prețuri
-      </a>
-    </Link>
-    <Link href="#contact">
-      <a className="block text-gray-800 hover:text-blue-600 py-2 px-4 transition-all">
-        Contact
-      </a>
-    </Link>
-  </div>
-)}
-
+          {menuOpen && (
+            <div className="absolute top-24 left-0 w-full bg-white shadow-md md:hidden">
+              <Link
+                href="#about"
+                className="block text-gray-800 hover:text-blue-600 py-2 px-4 transition-all"
+              >
+                Despre Noi
+              </Link>
+              <Link
+                href="#prices"
+                className="block text-gray-800 hover:text-blue-600 py-2 px-4 transition-all"
+              >
+                Prețuri
+              </Link>
+              <Link
+                href="#contact"
+                className="block text-gray-800 hover:text-blue-600 py-2 px-4 transition-all"
+              >
+                Contact
+              </Link>
+            </div>
+          )}
         </div>
       </div>
     </nav>
